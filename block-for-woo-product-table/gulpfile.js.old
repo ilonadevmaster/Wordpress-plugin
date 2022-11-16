@@ -1,0 +1,305 @@
+/**
+ * Deprecated - replaced by gulpfile-common.js
+ */
+const { src, dest, series, parallel, watch } = require( 'gulp' );
+
+const config = require( './config.json' ),
+    pump = require( 'pump' ),
+    clean = require( 'gulp-clean' ),
+    jshint = require( 'gulp-jshint' ),
+    minify = require( 'gulp-uglify' ),
+    cleancss = require( 'gulp-clean-css' ),
+    fs = require( 'fs' ),
+    header = require( 'gulp-header' ),
+    rename = require( 'gulp-rename' ),
+    debug = require( 'gulp-debug' ),
+    checktextdomain = require( 'gulp-checktextdomain' ),
+    GulpSSH = require( 'gulp-ssh' ),
+    replace = require( 'gulp-replace' ),
+    zip = require( 'gulp-zip' ),
+    log = require( 'fancy-log' ),
+    sass = require( 'gulp-sass' ),
+    postcss = require( 'gulp-postcss' ),
+    autoprefixer = require( 'autoprefixer' ),
+    babel = require('gulp-babel');
+
+
+if ( !config || !('ssh' in config) ) {
+    throw new Error( "No config file found" );
+}
+
+sass.compiler = require( 'node-sass' );
+/*
+if ( 'privateKey' in config.ssh.barn2 ) {
+    config.ssh.barn2.privateKey = fs.readFileSync( config.ssh.barn2.privateKey );
+}
+
+if ( 'privateKey' in config.ssh.demo ) {
+    config.ssh.demo.privateKey = fs.readFileSync( config.ssh.demo.privateKey );
+}
+
+if ( 'privateKey' in config.ssh.testing ) {
+    config.ssh.testing.privateKey = fs.readFileSync( config.ssh.testing.privateKey );
+}
+
+const sshBarn2 = new GulpSSH( {
+    ignoreErrors: false,
+    sshConfig: config.ssh.barn2
+} );
+
+const sshDemo = new GulpSSH( {
+    ignoreErrors: false,
+    sshConfig: config.ssh.demo
+} );
+
+const sshTesting = new GulpSSH( {
+    ignoreErrors: false,
+    sshConfig: config.ssh.testing
+} );
+*/
+//const pluginRootPath = config.paths.plugins.base;
+//const pluginArchivePath = config.paths.archive;
+
+var WCPTB = function( cb ) {
+    setupBuild( {
+        name: 'WooCommerce Product Table Block',
+        slug: 'woocommerce-product-table-block',
+        libFiles: [],
+        domain: 'block-for-woo-product-table'
+    }, cb );
+};
+
+var pluginName, pluginSlug, textDomain, libFiles, libPath, buildPath;
+
+var setupBuild = function( data, cb ) {
+    pluginName = data.name;
+    pluginSlug = data.slug;
+    textDomain = data.domain || data.slug;
+    libFiles = data.libFiles || [];
+
+    buildPath = fs.realpathSync( process.cwd() );
+    libPath = fs.realpathSync( buildPath + '/..' );
+
+    /*if ( !pluginRootPath ) {
+        cb( new Error( 'No plugin root path defined in config.json' ) );
+    } else {
+        var pluginBase = pluginRootPath + '/' + pluginSlug;
+
+        if ( pluginSlug in config.paths.plugins && config.paths.plugins[pluginSlug] ) {
+            pluginBase = config.paths.plugins[pluginSlug];
+        }
+
+        log( 'Plugin directory: ' + pluginBase );
+        process.chdir( pluginBase );
+        cb();
+    }*/
+
+    cb();
+};
+
+var getVersion = function() {
+    var readme = fs.readFileSync( 'readme.txt', 'utf8' );
+    var version = readme.match( /Stable tag\:\s(.*)\s/i );
+    return (1 in version) ? version[1] : false;
+};
+
+var getCopyright = function() {
+    return fs.readFileSync( buildPath + '/copyright.txt', 'utf8' );
+};
+
+var getCopyrightVars = function() {
+    return { 'name': pluginName, 'version': getVersion() };
+};
+
+var getFilesToDeploy = function() {
+    var files = ['**', '!node_modules/**', '!docs/**', '!**/.DS_Store', '!package*.json', '!copyright.txt', '!gulpfile.js', '!.git*'];
+
+    // The /vendor folder shouldn't be deployed, except for these plugins.
+    // @todo: Move this to project-specific build file.
+    if ( 'woocommerce-default-quantity' !== pluginSlug && 'edd-eu-vat' !== pluginSlug && 'woocommerce-private-store' !== pluginSlug ) {
+        files.push( '!vendor/**' );
+    }
+    return files;
+};
+
+var sassLib = function( cb ) {
+    // Delete any previously compiled styles.
+    src( libPath + '/lib/assets/css/**/*.css', { read: false } )
+        .pipe( clean() );
+
+    pump( [
+        src( libPath + '/assets/sass/**/*.scss' ),
+        sass( { errLogToConsole: true } ),
+        debug(),
+        postcss( [autoprefixer()] ),
+        header( getCopyright( ), getCopyrightVars() ),
+        dest( libPath + '/lib/assets/css/' )
+    ], cb );
+};
+
+var sassMinLib = function( cb ) {
+    pump( [
+        src( libPath + '/lib/assets/css/**/*.css' ),
+        cleancss( { compatibility: 'ie10' } ),
+        rename( { suffix: '.min' } ),
+        dest( libPath + '/lib/assets/css/' )
+    ], cb );
+};
+
+var scripts = function( cb ) {
+    // Delete any previous minified scripts.
+    src( ['assets/js/*.min.js', 'assets/js/admin/*.min.js'], { read: false } )
+        .pipe( clean() );
+
+    pump( [
+        src( ['assets/js/*.js', 'assets/js/admin/*.js', '!**/*.min.js'], { base: './' } ),
+        debug(),
+        babel( { presets: [
+            [
+                '@babel/preset-env',
+                {
+                    "targets": {
+                        "esmodules": true,
+                        "ie": "11"
+                    }
+                }
+            ]
+        ] }),
+        minify( { compress: { negate_iife: false }, output: { comments: '/^\/*!/' } } ),
+        rename( { suffix: '.min' } ),
+        dest( '.' )
+    ], cb );
+};
+
+var minifyCss = function( cb ) {
+    // Delete any previous minified styles.
+    src( ['assets/css/*.min.css', 'assets/css/admin/*.min.css'], { read: false } )
+        .pipe( clean() );
+
+    pump( [
+        // Only process CSS in top-level CSS folder - some plugins put vendor CSS in subfolders (e.g. assets/css/datatables/)
+        src( ['assets/css/*.css', 'assets/css/admin/*.css', '!**/*.min.css'], { base: './' } ),
+        debug(),
+        cleancss( { compatibility: 'ie11' } ),
+        rename( { suffix: '.min' } ),
+        dest( '.' )
+    ], cb );
+};
+
+var compileSass = function( cb ) {
+    if ( fs.existsSync( 'assets/scss' ) ) {
+        return src( 'assets/scss/**/*.scss' )
+            .pipe( sass().on( 'error', sass.logError ) )
+            .pipe( dest( 'assets/css' ) );
+    }
+    cb();
+};
+
+var styles = series( compileSass, minifyCss );
+
+var lint = function() {
+    return src( ['assets/js/*.js', 'assets/js/admin/*.js', '!**/*.min.js'] )
+        .pipe( jshint() )
+        .pipe( jshint.reporter() ); // Dump results
+};
+
+var checkTranslations = function() {
+    return src( ['**/*.php', '!vendor/**'] )
+        .pipe(
+            checktextdomain( {
+                text_domain: textDomain,
+                keywords: [
+                    '__:1,2d',
+                    '_e:1,2d',
+                    '_x:1,2c,3d',
+                    'esc_html__:1,2d',
+                    'esc_html_e:1,2d',
+                    'esc_html_x:1,2c,3d',
+                    'esc_attr__:1,2d',
+                    'esc_attr_e:1,2d',
+                    'esc_attr_x:1,2c,3d',
+                    '_ex:1,2c,3d',
+                    '_n:1,2,4d',
+                    '_nx:1,2,4c,5d',
+                    '_n_noop:1,2,3d',
+                    '_nx_noop:1,2,3c,4d'
+                ]
+            } )
+            );
+};
+
+var createZipFile = function() {
+    return src( getFilesToDeploy() )
+        .pipe( zip( pluginSlug + '.zip' ) )
+        .pipe( dest( buildPath + '/dist' ) );
+};
+
+var copyToArchive = function( cb ) {
+    if ( !pluginArchivePath ) {
+        log( 'Skipping plugin archive as no archive path defined' );
+        cb();
+    } else {
+        const archiveDir = pluginArchivePath + '/' + pluginSlug + '/' + getVersion();
+        log( 'Archiving plugin to: ' + archiveDir );
+
+        fs.mkdirSync( archiveDir );
+
+        return src( buildPath + '/dist/' + pluginSlug + '.zip' )
+            .pipe( dest( archiveDir ) );
+    }
+};
+
+var readme = function() {
+    log( 'Connecting to host: ' + config.ssh.barn2.host + ' on port: ' + config.ssh.barn2.port );
+    return src( 'readme.txt' )
+        .pipe( sshBarn2.sftp( 'write', 'public/wp-content/uploads/plugin-readme/' + pluginSlug + '/readme.txt' ) ); // upload to Barn2 live
+};
+
+var demo = function() {
+    log( 'Connecting to host: ' + config.ssh.demo.host + ' on port: ' + config.ssh.demo.port );
+    return src( getFilesToDeploy() )
+        .pipe( sshDemo.dest( 'public/wp-content/plugins/' + pluginSlug + '/' ) );
+};
+
+var pluginTesting = function() {
+    log( 'Connecting to host: ' + config.ssh.testing.host + ' on port: ' + config.ssh.testing.port );
+    return src( getFilesToDeploy() )
+        .pipe( sshTesting.dest( 'public/wp-content/plugins/' + pluginSlug + '/' ) );
+};
+
+var barn2 = function( cb ) {
+    if ( fs.existsSync( buildPath + '/dist/' + pluginSlug + '.zip' ) ) {
+        log( 'Connecting to host: ' + config.ssh.barn2.host + ' on port: ' + config.ssh.barn2.port );
+        return src( getFilesToDeploy() )
+            .pipe( sshBarn2.dest( 'public/wp-content/plugins/' + pluginSlug + '/' ) );
+    } else {
+        log( 'Skipping Barn2 plugin upddate - plugin not built' );
+        cb();
+    }
+};
+
+var build = series( WCPTB, parallel( scripts, styles ), checkTranslations );
+var archive = series( createZipFile, copyToArchive );
+var release = series( build, parallel( demo, pluginTesting, archive, readme ) );
+var freePluginRelease = series( build, parallel( pluginTesting, archive ) );
+//var buildAndArchive = series( build, archive );
+//var updateDemo = series( build, demo );
+var updatePluginTesting = series( build, pluginTesting );
+
+var ptpBuild = series( parallel( lint ), checkTranslations );
+var ptpRelease = series( ptpBuild, parallel( demo, pluginTesting, archive, readme ) );
+
+var test = function( cb ) {
+    log( 'Well, the default task doesn\`t do much. But at least Gulp is working :-)' );
+    cb();
+};
+
+module.exports = {
+    default: test,
+    setup: WCPTB,
+    build: build,
+    watch: () => {
+        watch( 'assets/scss/*.scss', styles );
+        watch( [ 'assets/js/*.js', '!**/*.min.js' ], scripts );
+    }
+};

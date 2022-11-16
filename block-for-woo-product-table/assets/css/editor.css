@@ -1,0 +1,498 @@
+.editor-styles-wrapper .barn2-wc-product-table-block,
+.barn2-wc-product-table-block {
+  box-sizing: border-box;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, Arial, sans-serif;
+  line-height: 1;
+  padding: 1em;
+  background: rgba(139, 139, 150, 0.1);
+  color: #333333;
+  align-items: flex-start;
+  text-align: left;
+  overflow: visible;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block *,
+.barn2-wc-product-table-block * {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block a, .editor-styles-wrapper .barn2-wc-product-table-block .components-button.is-secondary,
+.barn2-wc-product-table-block a,
+.barn2-wc-product-table-block .components-button.is-secondary {
+  color: #005d8c;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block h3, .editor-styles-wrapper .barn2-wc-product-table-block p, .editor-styles-wrapper .barn2-wc-product-table-block li,
+.barn2-wc-product-table-block h3,
+.barn2-wc-product-table-block p,
+.barn2-wc-product-table-block li {
+  font-size: 13px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block h3,
+.barn2-wc-product-table-block h3 {
+  font-weight: 600;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-placeholder__label,
+.barn2-wc-product-table-block .components-placeholder__label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-placeholder__label svg,
+.barn2-wc-product-table-block .components-placeholder__label svg {
+  margin-right: 0.5em;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-placeholder__fieldset,
+.barn2-wc-product-table-block .components-placeholder__fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .block-description,
+.barn2-wc-product-table-block .block-description {
+  text-align: left;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-button.has-svg span,
+.barn2-wc-product-table-block .components-button.has-svg span {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block p.additional-settings-notice,
+.barn2-wc-product-table-block p.additional-settings-notice {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(139, 139, 150, 0.1);
+  text-align: left;
+  font-size: 13px;
+  font-style: italic;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__options,
+.barn2-wc-product-table-block__options {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(139, 139, 150, 0.1);
+  display: flex;
+  align-items: flex-start;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__options > *,
+.barn2-wc-product-table-block__options > * {
+  flex: 0 1 50%;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__products,
+.barn2-wc-product-table-block__products {
+  margin-left: 1em;
+}
+@media screen and (max-width: 622px) {
+  .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options,
+.barn2-wc-product-table-block .barn2-wc-product-table-block__options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options > *,
+.barn2-wc-product-table-block .barn2-wc-product-table-block__options > * {
+    flex: 0 0 auto;
+  }
+  .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__products,
+.barn2-wc-product-table-block .barn2-wc-product-table-block__products {
+    margin-top: 1em;
+    margin-left: 0;
+    padding-top: 1em;
+    border-top: 1px solid rgba(139, 139, 150, 0.1);
+  }
+}
+@media screen and (max-width: 782px) {
+  .is-fullscreen-mode .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options,
+.is-fullscreen-mode .barn2-wc-product-table-block .barn2-wc-product-table-block__options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .is-fullscreen-mode .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options > *,
+.is-fullscreen-mode .barn2-wc-product-table-block .barn2-wc-product-table-block__options > * {
+    flex: 0 0 auto;
+  }
+  .is-fullscreen-mode .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__products,
+.is-fullscreen-mode .barn2-wc-product-table-block .barn2-wc-product-table-block__products {
+    margin-top: 1em;
+    margin-left: 0;
+    padding-top: 1em;
+    border-top: 1px solid rgba(139, 139, 150, 0.1);
+  }
+}
+@media screen and (max-width: 1080px) {
+  .is-fullscreen-mode .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options,
+.is-fullscreen-mode .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .is-fullscreen-mode .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options > *,
+.is-fullscreen-mode .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__options > * {
+    flex: 0 0 auto;
+  }
+  .is-fullscreen-mode .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__products,
+.is-fullscreen-mode .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__products {
+    margin-top: 1em;
+    margin-left: 0;
+    padding-top: 1em;
+    border-top: 1px solid rgba(139, 139, 150, 0.1);
+  }
+}
+@media screen and (max-width: 1240px) {
+  body:not(.is-fullscreen-mode) .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options,
+body:not(.is-fullscreen-mode) .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  body:not(.is-fullscreen-mode) .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__options > *,
+body:not(.is-fullscreen-mode) .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__options > * {
+    flex: 0 0 auto;
+  }
+  body:not(.is-fullscreen-mode) .is-sidebar-opened .editor-styles-wrapper .barn2-wc-product-table-block .barn2-wc-product-table-block__products,
+body:not(.is-fullscreen-mode) .is-sidebar-opened .barn2-wc-product-table-block .barn2-wc-product-table-block__products {
+    margin-top: 1em;
+    margin-left: 0;
+    padding-top: 1em;
+    border-top: 1px solid rgba(139, 139, 150, 0.1);
+  }
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .empty-options,
+.barn2-wc-product-table-block .empty-options {
+  font-style: italic;
+  flex: 1 1 100%;
+  font-size: 13px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns, .editor-styles-wrapper .barn2-wc-product-table-block__products, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel,
+.barn2-wc-product-table-block__columns,
+.barn2-wc-product-table-block__products,
+.barn2-wc-product-table-block__new-filter-panel {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns h3, .editor-styles-wrapper .barn2-wc-product-table-block__columns p, .editor-styles-wrapper .barn2-wc-product-table-block__products h3, .editor-styles-wrapper .barn2-wc-product-table-block__products p, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel h3, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel p,
+.barn2-wc-product-table-block__columns h3,
+.barn2-wc-product-table-block__columns p,
+.barn2-wc-product-table-block__products h3,
+.barn2-wc-product-table-block__products p,
+.barn2-wc-product-table-block__new-filter-panel h3,
+.barn2-wc-product-table-block__new-filter-panel p {
+  flex: 1 1 100%;
+  text-align: left;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns h3 em, .editor-styles-wrapper .barn2-wc-product-table-block__products h3 em, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel h3 em,
+.barn2-wc-product-table-block__columns h3 em,
+.barn2-wc-product-table-block__products h3 em,
+.barn2-wc-product-table-block__new-filter-panel h3 em {
+  font-weight: normal;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns h3 em::before, .editor-styles-wrapper .barn2-wc-product-table-block__products h3 em::before, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel h3 em::before,
+.barn2-wc-product-table-block__columns h3 em::before,
+.barn2-wc-product-table-block__products h3 em::before,
+.barn2-wc-product-table-block__new-filter-panel h3 em::before {
+  content: " ";
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns ul:not(:empty) ~ p.empty-options, .editor-styles-wrapper .barn2-wc-product-table-block__products ul:not(:empty) ~ p.empty-options, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel ul:not(:empty) ~ p.empty-options,
+.barn2-wc-product-table-block__columns ul:not(:empty) ~ p.empty-options,
+.barn2-wc-product-table-block__products ul:not(:empty) ~ p.empty-options,
+.barn2-wc-product-table-block__new-filter-panel ul:not(:empty) ~ p.empty-options {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__column-selector, .editor-styles-wrapper .barn2-wc-product-table-block__attribute-selector, .editor-styles-wrapper .barn2-wc-product-table-block__custom-input,
+.barn2-wc-product-table-block__column-selector,
+.barn2-wc-product-table-block__attribute-selector,
+.barn2-wc-product-table-block__custom-input {
+  margin: 0 0.5em 0 0;
+  height: auto;
+  min-height: 31px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__column-selector.selected ~ .barn2-wc-product-table-block__add-column-button, .editor-styles-wrapper .barn2-wc-product-table-block__attribute-selector.selected ~ .barn2-wc-product-table-block__add-column-button, .editor-styles-wrapper .barn2-wc-product-table-block__custom-input.selected ~ .barn2-wc-product-table-block__add-column-button,
+.barn2-wc-product-table-block__column-selector.selected ~ .barn2-wc-product-table-block__add-column-button,
+.barn2-wc-product-table-block__attribute-selector.selected ~ .barn2-wc-product-table-block__add-column-button,
+.barn2-wc-product-table-block__custom-input.selected ~ .barn2-wc-product-table-block__add-column-button {
+  display: block;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns button, .editor-styles-wrapper .barn2-wc-product-table-block__columns input, .editor-styles-wrapper .barn2-wc-product-table-block__columns select, .editor-styles-wrapper .barn2-wc-product-table-block__columns > button:last-child,
+.barn2-wc-product-table-block__columns button,
+.barn2-wc-product-table-block__columns input,
+.barn2-wc-product-table-block__columns select,
+.barn2-wc-product-table-block__columns > button:last-child {
+  margin-bottom: 5px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__add-column-button,
+.barn2-wc-product-table-block__add-column-button {
+  display: none;
+  height: auto;
+  min-height: 31px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__column-selector:not(.select-attribute) ~ .barn2-wc-product-table-block__attribute-selector, .editor-styles-wrapper .barn2-wc-product-table-block__column-selector:not(.select-custom) ~ .barn2-wc-product-table-block__custom-input,
+.barn2-wc-product-table-block__column-selector:not(.select-attribute) ~ .barn2-wc-product-table-block__attribute-selector,
+.barn2-wc-product-table-block__column-selector:not(.select-custom) ~ .barn2-wc-product-table-block__custom-input {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li,
+.barn2-wc-product-table-block__columns-selected li {
+  cursor: grab;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li:hover,
+.barn2-wc-product-table-block__columns-selected li:hover {
+  outline: 1px solid rgba(0, 93, 140, 0.5);
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li:hover > svg,
+.barn2-wc-product-table-block__columns-selected li:hover > svg {
+  fill: rgba(0, 93, 140, 0.5);
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li button, .editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li input,
+.barn2-wc-product-table-block__columns-selected li button,
+.barn2-wc-product-table-block__columns-selected li input {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: auto;
+  min-height: 31px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__edit-label-input, .editor-styles-wrapper .barn2-wc-product-table-block__save-label-button,
+.barn2-wc-product-table-block__edit-label-input,
+.barn2-wc-product-table-block__save-label-button {
+  margin-left: 5px;
+}
+.barn2-wc-product-table-block__edit-label-button[aria-expanded=false] ~ .editor-styles-wrapper .barn2-wc-product-table-block__edit-label-input, .barn2-wc-product-table-block__edit-label-button[aria-expanded=false] ~ .editor-styles-wrapper .barn2-wc-product-table-block__save-label-button,
+.barn2-wc-product-table-block__edit-label-button[aria-expanded=false] ~ .barn2-wc-product-table-block__edit-label-input,
+.barn2-wc-product-table-block__edit-label-button[aria-expanded=false] ~ .barn2-wc-product-table-block__save-label-button {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__edit-label-button,
+.barn2-wc-product-table-block__edit-label-button {
+  flex: 0 0 36px;
+  margin-right: 0;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__edit-label-button svg,
+.barn2-wc-product-table-block__edit-label-button svg {
+  width: 18px;
+  height: 18px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__edit-label-input,
+.barn2-wc-product-table-block__edit-label-input {
+  flex: 1 1 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__save-label-button,
+.barn2-wc-product-table-block__save-label-button {
+  flex: 0 0 auto;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__edit-label-button[aria-expanded=true] ~ .barn2-wc-product-table-block__save-label-button ~ *,
+.barn2-wc-product-table-block__edit-label-button[aria-expanded=true] ~ .barn2-wc-product-table-block__save-label-button ~ * {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters,
+.barn2-wc-product-table-block__columns-selected,
+.barn2-wc-product-table-block__product-filters {
+  list-style: none;
+  flex: 1 1 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  line-height: 1;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li,
+.barn2-wc-product-table-block__columns-selected li,
+.barn2-wc-product-table-block__product-filters li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.5em;
+  background: rgba(139, 139, 150, 0.1);
+  line-height: inherit;
+  line-height: 1;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li span, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li span,
+.barn2-wc-product-table-block__columns-selected li span,
+.barn2-wc-product-table-block__product-filters li span {
+  flex: 1 1 auto;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li span strong + em, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li span strong + em,
+.barn2-wc-product-table-block__columns-selected li span strong + em,
+.barn2-wc-product-table-block__product-filters li span strong + em {
+  font-weight: normal;
+  font-style: normal;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li span strong + em::before, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li span strong + em::before,
+.barn2-wc-product-table-block__columns-selected li span strong + em::before,
+.barn2-wc-product-table-block__product-filters li span strong + em::before {
+  content: ": ";
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li + li, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li + li,
+.barn2-wc-product-table-block__columns-selected li + li,
+.barn2-wc-product-table-block__product-filters li + li {
+  margin-top: 0.5em;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li > svg, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li > svg,
+.barn2-wc-product-table-block__columns-selected li > svg,
+.barn2-wc-product-table-block__product-filters li > svg {
+  align-self: center;
+  flex: 0 0 20px;
+  fill: rgba(139, 139, 150, 0.25);
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li .barn2-wc-product-table-block__delete-column, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li .barn2-wc-product-table-block__delete-column,
+.barn2-wc-product-table-block__columns-selected li .barn2-wc-product-table-block__delete-column,
+.barn2-wc-product-table-block__product-filters li .barn2-wc-product-table-block__delete-column {
+  flex: 0 0 32px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected li .barn2-wc-product-table-block__delete-column svg, .editor-styles-wrapper .barn2-wc-product-table-block__product-filters li .barn2-wc-product-table-block__delete-column svg,
+.barn2-wc-product-table-block__columns-selected li .barn2-wc-product-table-block__delete-column svg,
+.barn2-wc-product-table-block__product-filters li .barn2-wc-product-table-block__delete-column svg {
+  width: 16px;
+  height: 16px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__columns-selected:not(:empty), .editor-styles-wrapper .barn2-wc-product-table-block__product-filters:not(:empty),
+.barn2-wc-product-table-block__columns-selected:not(:empty),
+.barn2-wc-product-table-block__product-filters:not(:empty) {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-option:not(.visible),
+.barn2-wc-product-table-block__new-option:not(.visible) {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__add-filter-button, .editor-styles-wrapper .barn2-wc-product-table-block__andor-toggle, .editor-styles-wrapper .barn2-wc-product-table-block__save-filter-button, .editor-styles-wrapper .barn2-wc-product-table-block__reset-filter-button,
+.barn2-wc-product-table-block__add-filter-button,
+.barn2-wc-product-table-block__andor-toggle,
+.barn2-wc-product-table-block__save-filter-button,
+.barn2-wc-product-table-block__reset-filter-button {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__andor-toggle,
+.barn2-wc-product-table-block__andor-toggle {
+  align-self: center;
+  margin-top: 5px;
+  flex: 1 1 100%;
+  margin-bottom: 15px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__andor-toggle .components-base-control__field,
+.barn2-wc-product-table-block__andor-toggle .components-base-control__field {
+  margin-bottom: 0;
+}
+.allow-andor.has-multiple .editor-styles-wrapper .barn2-wc-product-table-block__andor-toggle,
+.allow-andor.has-multiple .barn2-wc-product-table-block__andor-toggle {
+  display: block;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__andor-toggle .components-form-toggle,
+.barn2-wc-product-table-block__andor-toggle .components-form-toggle {
+  margin-right: 8px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .allow-multiple .selected ~ .barn2-wc-product-table-block__add-filter-button,
+.editor-styles-wrapper .barn2-wc-product-table-block .allow-multiple .visible ~ .barn2-wc-product-table-block__reset-filter-button, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selections:not(:empty) ~ .barn2-wc-product-table-block__save-filter-button, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel:not(.allow-multiple) .selected ~ .barn2-wc-product-table-block__save-filter-button,
+.barn2-wc-product-table-block .allow-multiple .selected ~ .barn2-wc-product-table-block__add-filter-button,
+.barn2-wc-product-table-block .allow-multiple .visible ~ .barn2-wc-product-table-block__reset-filter-button,
+.barn2-wc-product-table-block__new-filter-selections:not(:empty) ~ .barn2-wc-product-table-block__save-filter-button,
+.barn2-wc-product-table-block__new-filter-panel:not(.allow-multiple) .selected ~ .barn2-wc-product-table-block__save-filter-button {
+  display: block;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selection-label,
+.barn2-wc-product-table-block__new-filter-selection-label {
+  display: none;
+}
+.allow-multiple .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selection-label,
+.allow-multiple .barn2-wc-product-table-block__new-filter-selection-label {
+  display: block;
+  flex: 1 1 100%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .spacer,
+.barn2-wc-product-table-block .spacer {
+  flex: 1 1 100%;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selections,
+.barn2-wc-product-table-block__new-filter-selections {
+  flex: 1 1 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 5px 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selections li,
+.barn2-wc-product-table-block__new-filter-selections li {
+  flex: 0 0 auto;
+  margin: 5px 10px 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+  background: rgba(139, 139, 150, 0.1);
+  flex: 0 0 auto;
+  border-radius: 2em;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selections li button,
+.barn2-wc-product-table-block__new-filter-selections li button {
+  padding: 5px 5px;
+  margin: 0 0 0 5px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-selections li button svg,
+.barn2-wc-product-table-block__new-filter-selections li button svg {
+  width: 16px;
+  height: 16px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel select, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel input, .editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel button,
+.barn2-wc-product-table-block__new-filter-panel select,
+.barn2-wc-product-table-block__new-filter-panel input,
+.barn2-wc-product-table-block__new-filter-panel button {
+  margin: 5px 5px 0 0;
+  height: auto;
+  min-height: 31px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block input,
+.barn2-wc-product-table-block input {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: normal;
+  width: auto;
+  flex: 1 1 auto;
+  border: 1px solid #7e8993;
+  min-height: 31px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block input:focus,
+.barn2-wc-product-table-block input:focus {
+  border-color: #007cba;
+  box-shadow: 0 0 1px #007cba;
+  outline: 2px solid transparent;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__custom-filter-option[aria-hidden=true],
+.barn2-wc-product-table-block__custom-filter-option[aria-hidden=true] {
+  display: none;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel .barn2-wc-product-table-block__save-filter-button,
+.editor-styles-wrapper .barn2-wc-product-table-block__new-filter-panel .barn2-wc-product-table-block__reset-filter-button,
+.barn2-wc-product-table-block__new-filter-panel .barn2-wc-product-table-block__save-filter-button,
+.barn2-wc-product-table-block__new-filter-panel .barn2-wc-product-table-block__reset-filter-button {
+  margin-top: 15px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-button,
+.barn2-wc-product-table-block .components-button {
+  border: 1px solid #1989c1;
+  border-radius: 3px;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-button.is-primary,
+.barn2-wc-product-table-block .components-button.is-primary {
+  background: #1989c1;
+  color: white;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-button.is-secondary,
+.barn2-wc-product-table-block .components-button.is-secondary {
+  border-color: #0075af;
+  background: #f3f5f6;
+  color: #0075af;
+}
+.editor-styles-wrapper .barn2-wc-product-table-block .components-button.components-button.has-icon, .editor-styles-wrapper .barn2-wc-product-table-block .components-button.has-svg,
+.barn2-wc-product-table-block .components-button.components-button.has-icon,
+.barn2-wc-product-table-block .components-button.has-svg {
+  border: transparent;
+}
